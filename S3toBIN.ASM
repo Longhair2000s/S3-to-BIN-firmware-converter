@@ -6,19 +6,9 @@ include 'win64a.inc'
 
 section '.data' data readable writeable
 
-IDR_ICON                     =  17
-
-struct GdiplusStartupInput              ;cтруктура для работы с GDI+
-       GdiplusVersion           dq ?
-       DebugEventCallback       dq ?
-       SuppressBackgroundThread dq ?
-       SuppressExternalCodecs   dq ?
-ends
-
         conTitle    db '*.S3 to *.BIN',0
         strY        db 'Drop firmware file *.s3 or *.sre into console and press Enter...',13,10,0
         anyKey      db 'Press any key to exit',13,10,0
-        adressX     db '%x',0
 align 8                 ;выравнивание адреса следующей строки до кратности 8 байт
         name        rq 50
         adress      dd ?
