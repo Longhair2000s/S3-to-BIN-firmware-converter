@@ -240,12 +240,11 @@ _isS315:
         jmp     nextData
 subExit:
 ;сохраняем файл
-        push    r11
+        mov     r15,r11
         invoke  CreateFile,name,GENERIC_WRITE,0,0,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,0
         mov     [_hFile],rax
-        pop     r11
-        sub     r11,r14
-        invoke  WriteFile,rax,r14,r11,_r,0
+        sub     r15,r14
+        invoke  WriteFile,rax,r14,r15,_r,0
         invoke  CloseHandle,[_hFile]
 ;освободим память
         invoke  HeapFree,[_hHeap],0,[_lpBuffer]
